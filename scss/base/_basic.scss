@@ -1,0 +1,30 @@
+// BASE / BASIC
+
+@use '../settings/color-scheme' as *; // Importiert alle Farb-Variablen
+
+// CONTAINER
+.container { // Container = unsichtbare, zentrierte Box
+  max-width: 1200px;          // max. Breite
+  margin: 0 auto;              // zentriert, 0 = Abstand oben/unten, auto = Abstand links/rechts automatisch < zentriert horizontal
+  // margin: 0 auto = horizontal zentrieren durch gleichen Rand links & rechts
+  padding: 0 var(--space-lg);  // horizontaler Abstand
+
+  @media (max-width: 768px) {
+    padding: 0 var(--space-sm); // kleineres Padding auf Tablet/Handy
+  }
+}
+
+// LINKS
+a {
+  color: $blue;               // Hauptfarbe
+  transition: color 0.3s; // Farbwechsel wirkt sanft, nicht abrupt < also wenn sich die Farbe ändert, z. B. beim Hover, dann soll der Wechsel 0,3 Sekunden dauern und gleichmäßig ablaufen
+
+  &:hover {
+    color: $blue-light;       // heller beim Hover
+  }
+}
+
+// BUTTONS BASIS
+button {
+  font-family: inherit;       // Schrift
+}

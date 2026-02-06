@@ -1,0 +1,89 @@
+@use '../settings/mixins' as *; // SCSS-Mixins importieren ohne Prefix, muss oben stehen
+
+
+// Cards weiß
+
+// Flexbox-Container für Fazit-Boxen < nebeneinander, beschreibt den Container
+.fazit__content {
+  display: flex; 
+  justify-content: center; // horizontal zentrieren
+  align-items: stretch; // Kinder gleich hoch strecken, Querachse
+  gap: var(--space-lg); // Abstand zwischen cards horizontal
+
+  @media (max-width: 1024px) {
+    flex-flow: column nowrap; // Auf Tablet: Boxen untereinander
+    gap: 0; // kein horizontaler Abstand mehr, wenn Karten dann untereinander sind
+  }
+}
+// Flexbox-Container für Fazit-Boxen < 50/50, beschreiben die Kinder (Breite/Verhalten der Boxen)
+.fazit__text,
+.fazit__dank {
+  width: 50%; // je Box halbe Breite
+
+  @media (max-width: 1024px) {
+    width: 100%; // Auf Handy volle Breite, sonst cards haben nicht volle Breite und sind zu schmal
+  }
+}
+
+.fazit__ziele,
+.bericht__tasks,
+.erfahrung__liste {
+  list-style: none; // Keine Aufzählungszeichen
+ 
+}
+
+// Karten mit weißem Hintergrund, Hover
+.project-card,
+.praktikum__info,
+.bericht__week,
+.erfahrung__kategorie,
+.erfahrung__highlight,
+.box {
+  @include card-style; // Weißer Hintergrund, Schatten, abgerundete Ecken, Padding
+  @include hover-lift; // Hover-Effekt: nach oben + größer
+  margin-bottom: var(--space-md); // Abstand unten, sonst Karten kleben aneinander
+
+}
+
+
+// Cards für Slider
+
+// Größe anpassen, sodass Pfeil Button und Inhalt sich nicht überschneiden
+.project-card__content {
+  text-align: left; // Text linksbündig
+  max-width: 85%; // Textbreite maximal 85%, damit Pfeil Button nicht mit dem Text etc. sich überschneidet
+  margin: 0 auto; // horizontal zentrieren < oben/unten kein Abstand (0) und links/rechts automatisch gleich viel Abstand < Der Browser berechnet den linken und rechten Abstand automatisch gleich groß, damit das Element in der Mitte steht
+}
+
+// Code Cards in schwarz
+pre {
+  background: var(--code-bg); // dunkler Hintergrund
+  color: var(--code-text); // heller Text
+  padding: var(--space-md); // Innenabstand
+  border-radius: var(--radius); // abgerundete Ecken
+  overflow-x: auto; // horizontale Scrollbar
+  margin: var(--space-sm) 0; // Abstand oben/unten
+  text-align: left; // linksbündig
+}
+
+// Abstand zwischen Elementen
+.project-card__tech {
+  display: flex; // Flexbox < gleichmäßigen Abstand mit gap bekommen, nebeneinander statt untereinander
+  gap: var(--space-0-5); // Abstand zwischen Tags (z.B. React, TypeScript, Hooks ) < gap funktioniert hier, weil display: flex aktiv ist, gap ist der Abstand zwischen den Flex-Kindern, also gap folgt der Flex-Richtung
+  margin: var(--space-sm) 0; // Abstand oben/unten zwischen Elementen 
+  justify-content: flex-start; // linksbündig
+}
+
+// Tags ähnlich wie Buttons designed
+.tech-tag {
+  background: var(--blue); // blauer Hintergrund
+  color: var(--white); // weißer Text
+  padding: var(--space-0-3) var(--space-0-6); // Innenabstand
+  border-radius: var(--radius-pill); // pillenförmig
+  font-size: var(--text-base); // Schriftgröße
+  font-weight: var(--font-semibold); // halbfett
+
+  @media (max-width: 480px) {
+    font-size: var(--text-sm); // kleinere Schrift auf Smartphone
+  }
+}

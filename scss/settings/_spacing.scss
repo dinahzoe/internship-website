@@ -1,0 +1,44 @@
+// SETTINGS / SPACING SYSTEM
+
+// rem macht Layouts flexibler, skalierbar, konsistent und zugänglich < gut für moderne, responsive Designs
+// z.B. 1 rem meist 16px 
+
+// Spacing-Skala für konsistente Abstände
+$space-xs: 0.5rem;   // sehr klein
+$space-sm: 1rem;     // klein
+$space-md: 1.5rem;   // mittel
+$space-lg: 2rem;     // groß
+$space-xl: 3rem;     // extra groß
+$space-2xl: 4rem;    // sehr groß
+$space-3xl: 5rem;    // extra sehr groß
+$space-4xl: 6rem;    // extra sehr groß
+$space-negative-lg: -40rem; // spezieller Wert
+
+// Spezielle Werte
+$space-0-3: 0.3rem;  
+$space-0-5: 0.5rem;  
+$space-0-6: 0.6rem;  
+$space-0-7: 0.7rem;  
+$space-0-8: 0.8rem;  
+$space-1-2: 1.2rem;  
+$space-1-8: 1.8rem;  
+
+:root {
+  --space-xs: #{$space-xs};
+  --space-sm: #{$space-sm};
+  --space-md: #{$space-md};
+  --space-lg: #{$space-lg};
+  --space-xl: #{$space-xl};
+  --space-2xl: #{$space-2xl};
+  --space-3xl: #{$space-3xl};
+  --space-4xl: #{$space-4xl};
+  --space-negative-lg: #{$space-negative-lg};
+
+  --space-0-3: #{$space-0-3};
+  --space-0-5: #{$space-0-5};
+  --space-0-6: #{$space-0-6};
+  --space-0-7: #{$space-0-7};
+  --space-0-8: #{$space-0-8};
+  --space-1-2: #{$space-1-2};
+  --space-1-8: #{$space-1-8};
+}

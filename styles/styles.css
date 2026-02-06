@@ -1,0 +1,833 @@
+@charset "UTF-8";
+:root {
+  --blue: hsl(200, 85%, 38%);
+  --blue-light: hsl(200, 85%, 48%);
+  --blue-border: hsl(200, 85%, 85%);
+  --blue-table: hsl(200, 85%, 95%);
+  --apricot: hsl(249, 100%, 99%);
+  --rose: hsl(203, 100%, 97%);
+  --white: hsl(0, 0%, 100%);
+  --gray-100: hsl(0, 0%, 95%);
+  --gray-200: hsl(0, 0%, 85%);
+  --gray-300: hsl(0, 0%, 75%);
+  --gray-400: hsl(0, 0%, 60%);
+  --gray-800: hsl(0, 0%, 20%);
+  --code-bg: #1e1e1e;
+  --code-text: #d4d4d4;
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 12px 20px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --radius: 10px;
+  --radius-sm: 5px;
+  --radius-xs: 3px;
+  --radius-pill: 50px;
+  --border-width: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
+  --border-width-accent: 6px;
+}
+
+:root {
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 5rem;
+  --space-4xl: 6rem;
+  --space-negative-lg: -40rem;
+  --space-0-3: 0.3rem;
+  --space-0-5: 0.5rem;
+  --space-0-6: 0.6rem;
+  --space-0-7: 0.7rem;
+  --space-0-8: 0.8rem;
+  --space-1-2: 1.2rem;
+  --space-1-8: 1.8rem;
+}
+
+:root {
+  --text-xs: 0.65rem;
+  --text-sm: 0.7rem;
+  --text-0-8: 0.8rem;
+  --text-base: 0.85rem;
+  --text-md: 0.9rem;
+  --text-lg: 1rem;
+  --text-xl: 1.1rem;
+  --text-2xl: 1.2rem;
+  --text-3xl: 1.3rem;
+  --text-4xl: 1.5rem;
+  --text-5xl: 1.6rem;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --tracking-wider: 0.5px;
+  --tracking-widest: 1px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: var(--space-xs);
+}
+
+h2 {
+  font-size: 1.45rem;
+  margin-bottom: var(--space-xs);
+}
+
+h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-xs);
+}
+
+h4 {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-xs);
+}
+
+h5 {
+  font-size: 1.3rem;
+  margin-bottom: var(--space-xs);
+}
+
+h6 {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+:root {
+  font-family: sans-serif;
+  line-height: 1.6;
+}
+
+body {
+  font-size: 16px;
+  color: hsl(0, 0%, 13%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: var(--font-bold);
+  line-height: 1;
+  color: var(--blue);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  scroll-behavior: smooth;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  min-block-size: 100vh;
+}
+
+img, picture, svg, video {
+  display: block;
+  max-inline-size: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+}
+
+a {
+  color: hsl(200, 85%, 38%);
+  transition: color 0.3s;
+}
+a:hover {
+  color: hsl(200, 85%, 48%);
+}
+
+button {
+  font-family: inherit;
+}
+
+/* HEADER mit nav außen, damit es erst einmal erscheint */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--blue);
+  height: 90px;
+  padding: 0 var(--space-lg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+@media (max-width: 900px) {
+  .header {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+}
+
+/* NAVIGATION innen */
+.nav__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2vw;
+  list-style: none;
+}
+@media (max-width: 480px) {
+  .nav__list {
+    gap: 3vw;
+  }
+}
+
+.nav__link {
+  color: var(--white);
+  letter-spacing: var(--tracking-wider);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* SECTION NACH hero */
+section {
+  padding: var(--space-2xl) var(--space-lg);
+  background-color: var(--white);
+  position: relative;
+  z-index: 1;
+}
+section:nth-of-type(odd) {
+  background-color: var(--rose);
+}
+section:nth-of-type(even) {
+  background-color: var(--apricot);
+}
+
+/* FOOTER */
+.footer {
+  background: var(--blue);
+  color: var(--white);
+  text-align: center;
+  padding: var(--space-lg) var(--space-sm);
+  font-size: var(--text-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* LINKS */
+a {
+  text-decoration: none;
+}
+
+.hero {
+  height: 80vh;
+  color: var(--white);
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+  }
+}
+.hero__bg {
+  background-image: url("../assets/image/work.jpg");
+  background-size: cover;
+  background-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.hero__content {
+  max-width: 900px;
+  padding: var(--space-lg);
+  backdrop-filter: blur(5px);
+  border-radius: var(--radius);
+}
+@media (max-width: 480px) {
+  .hero__content {
+    padding: var(--space-sm);
+  }
+}
+.hero__title {
+  margin-bottom: var(--space-md);
+}
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: var(--text-4xl);
+  }
+}
+@media (max-width: 480px) {
+  .hero__subtitle, .hero__description {
+    font-size: var(--text-md);
+  }
+}
+
+.hero__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/*
+Aufgabenstellung: In den scss Dateien werden eigene mixins, Module und Kontrollstrukturen erarbeitet
+Lösung: 
+Mixins; @mixin, @include
+Module; @use
+Kontrollstrukturen; @if, @for in Datei TYPOGRAPHY
+
+
+z-index + position bestimmen die Layer-Reihenfolge:
+Hero-BG -1 < ganz hinten 
+Sections 1 < über Hintergrund, unter Hero
+Header 100 < immer oben, über allem
+*/
+.slider-container input[type=radio] {
+  /* Alle Radio-Buttons im Slider < brauchen sie für die Logik, wollen sie aber nicht sehen */
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.slider-container {
+  /* Äußerer Rahmen des Sliders */
+  position: relative;
+  padding: 0 5rem;
+  overflow: hidden;
+  width: 100%;
+}
+@media (max-width: 900px) {
+  .slider-container {
+    /* Auf Tablet/Mobil: kein klassischer Slider, sondern horizontal scrollen */
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+  }
+}
+@media (max-width: 900px) {
+  .slider-container {
+    /* Tablet Hochformat */
+    border: solid var(--blue);
+    border-radius: var(--radius);
+    background: var(--white);
+    padding: var(--space-md) 0 4rem 0;
+  }
+}
+
+.slider-track {
+  /* Schiene, auf der alle Slides nebeneinander liegen */
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease-in-out;
+}
+@media (max-width: 900px) {
+  .slider-track {
+    /* Mobil: scrollen statt sliden */
+    gap: var(--space-sm);
+    width: auto;
+  }
+}
+
+.slider-track .project-card {
+  /* Ein einzelner Slide */
+  min-width: 33.333%;
+}
+@media (max-width: 900px) {
+  .slider-track .project-card {
+    min-width: 85%;
+  }
+}
+
+#slide1:checked ~ .slider-track {
+  /* Slide 1 aktiv < nichts verschieben 
+  ~ .slider-track = alle .slider-track, die nach #slide1 im gleichen Container kommen
+  .slider-track ist also die bewegte Schiene, aber „nächster Slide“ passiert, weil ein anderer Radio-Button checked wird
+  -> HTML setzt checked (Ziel-Slide), CSS verschiebt .slider-track (zeigt ihn an)
+  Wenn #slide1 aktiviert ist, wird .slider-track verschoben, hier noch um 0%
+  */
+  transform: translateX(0%);
+}
+
+#slide2:checked ~ .slider-track {
+  /* Slide 2 aktiv < ein Slide nach links */
+  transform: translateX(-33.333%);
+}
+
+#slide3:checked ~ .slider-track {
+  /* Slide 3 aktiv < zwei Slides nach links */
+  transform: translateX(-66.666%);
+}
+
+.slider-btn {
+  /* Vor / Zurück Buttons */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--blue);
+  color: var(--white);
+  padding: var(--space-0-8) var(--space-sm);
+  font-size: 1.5rem;
+  border-radius: var(--radius-sm);
+  display: none;
+}
+.slider-btn:hover {
+  background: var(--blue-light);
+}
+@media (max-width: 900px) {
+  .slider-btn {
+    /* Mobil: keine Pfeile */
+    display: none !important;
+  }
+}
+
+.slider-btn.prev {
+  left: 0.6rem;
+}
+
+.slider-btn.next {
+  right: 0.6rem;
+}
+
+/*
+Welche Buttons sichtbar sind < vorher ist es display: none; 
+Wenn Slide 1 aktiv ist dann zeige den passenden Button alle anderen bleiben versteckt
+ohne das werden gar keine Buttons gezeigt, wegen display: none; 
+
+#slide1:checked -> Radio-Button von Slide 1 ist aktiv
+~ -> sucht nachfolgenden Geschwistern
+.slider-btn.slider-next-1 -> der „Weiter“-Button für Slide 1
+
+:checked -> Zustand: ist ausgewählt / aktiv < Das Element mit ID slide1, wenn es gerade aktiv (angeklickt) ist
+*/
+#slide1:checked ~ .slider-btn.slider-next-1 {
+  /* Erster Slide, Button jetzt anzeigen < nur Weiter */
+  display: block;
+}
+
+#slide2:checked ~ .slider-btn.slider-prev-2 {
+  display: block;
+}
+
+#slide2:checked ~ .slider-btn.slider-next-2 {
+  display: block;
+}
+
+#slide3:checked ~ .slider-btn.slider-prev-3 {
+  /* Letzter Slide < nur Zurück */
+  display: block;
+}
+
+.about__inner,
+.erfahrungen__inner,
+.bericht__inner {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+@media (max-width: 1024px) {
+  .about__inner,
+  .erfahrungen__inner,
+  .bericht__inner {
+    flex-flow: column nowrap;
+  }
+}
+
+.about__text,
+.about__image,
+.erfahrungen__text,
+.erfahrungen__image {
+  flex: 1;
+  min-width: 300px;
+}
+@media (max-width: 1024px) {
+  .about__text,
+  .about__image,
+  .erfahrungen__text,
+  .erfahrungen__image {
+    min-width: 100%;
+  }
+}
+
+.bericht__text {
+  flex: 2;
+  min-width: 0;
+}
+@media (max-width: 1024px) {
+  .bericht__text {
+    min-width: 100%;
+  }
+}
+
+.bericht__video {
+  width: 300px;
+}
+@media (max-width: 1024px) {
+  .bericht__video {
+    width: 100%;
+    padding-bottom: var(--space-md);
+    justify-content: center;
+  }
+}
+.bericht__video video {
+  width: 100%;
+  max-width: 420px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.about__image img,
+.bericht__image img,
+.erfahrungen__image img,
+.project-card__content img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.fazit__content {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: var(--space-lg);
+}
+@media (max-width: 1024px) {
+  .fazit__content {
+    flex-flow: column nowrap;
+    gap: 0;
+  }
+}
+
+.fazit__text,
+.fazit__dank {
+  width: 50%;
+}
+@media (max-width: 1024px) {
+  .fazit__text,
+  .fazit__dank {
+    width: 100%;
+  }
+}
+
+.fazit__ziele,
+.bericht__tasks,
+.erfahrung__liste {
+  list-style: none;
+}
+
+.project-card,
+.praktikum__info,
+.bericht__week,
+.erfahrung__kategorie,
+.erfahrung__highlight,
+.box {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: var(--space-1-8);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--space-md);
+}
+.project-card:hover,
+.praktikum__info:hover,
+.bericht__week:hover,
+.erfahrung__kategorie:hover,
+.erfahrung__highlight:hover,
+.box:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card__content {
+  text-align: left;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+pre {
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  margin: var(--space-sm) 0;
+  text-align: left;
+}
+
+.project-card__tech {
+  display: flex;
+  gap: var(--space-0-5);
+  margin: var(--space-sm) 0;
+  justify-content: flex-start;
+}
+
+.tech-tag {
+  background: var(--blue);
+  color: var(--white);
+  padding: var(--space-0-3) var(--space-0-6);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-base);
+  font-weight: var(--font-semibold);
+}
+@media (max-width: 480px) {
+  .tech-tag {
+    font-size: var(--text-sm);
+  }
+}
+
+.form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-fieldset {
+  border: solid var(--blue-light);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  background: var(--white);
+}
+
+legend {
+  color: var(--blue);
+  font-weight: var(--font-bold);
+  font-size: var(--text-2xl);
+  padding: 0 var(--space-0-5);
+}
+
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+label {
+  display: block;
+  color: var(--blue);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-0-5);
+}
+
+input[type=text],
+input[type=email],
+textarea {
+  width: 100%;
+  padding: var(--space-0-8);
+  border: solid var(--blue-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+}
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+input[type=text]::placeholder,
+input[type=email]::placeholder,
+textarea::placeholder {
+  color: var(--gray-400);
+}
+
+.form-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: var(--space-0-8) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-lg);
+  font-weight: var(--font-semibold);
+}
+.btn:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--blue-light);
+}
+
+.btn-secondary {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+.btn-secondary:hover {
+  background: var(--gray-300);
+}
+
+/* CONTAINER
+  für Tabellenüberschrift */
+.table-container {
+  background: var(--white);
+  border-radius: var(--radius);
+}
+
+/* CAPTION
+   Tabellenüberschrift */
+caption {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  padding: var(--space-sm);
+  color: var(--blue);
+  text-align: center;
+}
+
+/* TABLE 
+   Grundstruktur der Tabelle */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background: var(--white);
+}
+
+/* TH 
+   Tabellenüberschriften */
+th {
+  background: var(--blue);
+  color: var(--white);
+  font-weight: var(--font-bold);
+  text-align: left;
+  padding: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+}
+
+/* TD 
+   Tabellenzellen */
+td {
+  border: 1px solid var(--blue-border);
+  padding: var(--space-sm);
+  text-align: left;
+}
+
+/* TBODY TR 
+   Zeilen innerhalb des Table Body */
+tbody tr:nth-of-type(even) {
+  background: var(--apricot);
+}
+tbody tr:hover {
+  background: var(--blue-table);
+}
+
+.section__title.modern {
+  color: var(--blue);
+  border-left: var(--border-width-accent) solid var(--blue-light);
+  padding-left: var(--space-sm);
+  margin-block-end: var(--space-lg);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest);
+}
+
+:root {
+  --transition-duration: 0.6s;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-duration), transform var(--transition-duration);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.reveal,
+header.reveal,
+footer.reveal,
+.hero.reveal,
+.slider-container .reveal,
+.project-card.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* RESPONSIVE TABLES */
+@media screen and (max-width: 800px) {
+  .table-container table {
+    border: 0;
+  }
+  .table-container table caption {
+    font-size: var(--text-2xl);
+  }
+  .table-container table thead {
+    display: none;
+  }
+  .table-container table tr {
+    display: block;
+    margin-bottom: var(--space-md);
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: var(--space-sm);
+    box-shadow: var(--shadow);
+  }
+  .table-container table td {
+    border: none;
+    display: block;
+    text-align: left;
+    padding: var(--space-0-5) 0;
+    position: relative;
+    padding-left: 130px;
+  }
+  .table-container table td::before {
+    content: attr(data-label);
+    font-weight: var(--font-bold);
+    color: var(--blue);
+    position: absolute;
+    left: 0;
+  }
+  /* Globale Anpassungen für alle Tabellen auf kleinen Bildschirmen */
+  table,
+  th,
+  td,
+  caption {
+    font-size: var(--text-md);
+    padding: var(--space-0-5);
+  }
+}
+@media print {
+  form {
+    display: none;
+  }
+  .header,
+  .footer {
+    display: none;
+  }
+  .box,
+  .project-card {
+    box-shadow: none;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

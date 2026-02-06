@@ -1,0 +1,32 @@
+// BASE / RESET
+
+// Reset < gleiche Basis in allen Browsern
+*, *::before, *::after {
+  box-sizing: border-box; // padding & border in width einberechnet
+  margin: 0;              // alle Standard-Außenabstände entfernen
+  padding: 0;             // alle Standard-Innenabstände entfernen
+}
+
+:root {
+  scroll-behavior: smooth;        // sanftes Scrollen
+  -moz-text-size-adjust: none;    // Firefox Text nicht automatisch skalieren
+  -webkit-text-size-adjust: none; // Safari/Chrome Text nicht automatisch skalieren
+  text-size-adjust: none;         // Standard für moderne Browser < verhindert, dass Browser die Schriftgröße automatisch anpassen
+}
+
+body {
+  min-block-size: 100vh; // Seite mindestens volle Höhe
+}
+
+img, picture, svg, video {
+  display: block;        // Block-Element, keine Lücken
+  max-inline-size: 100%; // nie breiter als Container
+}
+
+input, button, textarea, select {
+  font: inherit; // Schrift von Elternelement übernehmen
+}
+
+table {
+  border-collapse: collapse; // Tabellenzellen teilen sich Linien
+}

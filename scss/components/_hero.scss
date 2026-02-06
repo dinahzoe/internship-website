@@ -1,0 +1,79 @@
+@use '../settings/mixins' as *; // SCSS-Mixins importieren, ohne Prefix, muss oben stehen
+
+// Parallax Effekt für Hero Section https://lautzeichen.de/css/der-parallax-scrolling-effekt-auf-die-einfache-art/
+
+// Bild als Hintergrund, Text Ausrichtung
+.hero {
+  height: 80vh; // Hero nimmt 80% der Viewport-Höhe ein, damit nicht zu schmal
+  color: var(--white); // Weißer Text
+  @include flex-center(row); // Flexbox: Inhalt horizontal + vertikal zentrieren auf dem gesamten Container
+  text-align: center; // Text im Hero zentrieren
+
+  @media (max-width: 480px) {
+    height: 60vh; // Kleinere Höhe auf Smartphones
+  }
+
+  // Hintergrund 
+  &__bg {
+    background-image: url("../assets/image/work.jpg"); // Hintergrundbild
+    background-size: cover; // Bild füllt Bereich, evtl. beschnitten < Bild passt sich immer der Größe an
+    background-position: center; // Bild zentriert
+    top: 0; // Oben anfangen
+    left: 0; // Links anfangen
+    width: 100%; // Volle Breite
+  }
+
+  // Content auf dem Hintergrund
+  &__content {
+    max-width: 900px; // Lesbare Breite für Text
+    padding: var(--space-lg); // Innenabstand, ansonsten ist Text rechts und links zu nah am Rand
+    backdrop-filter: blur(5px); // Hintergrund leicht verschwommen
+    border-radius: var(--radius); // Abgerundete Ecken
+
+    @media (max-width: 480px) {
+      padding: var(--space-sm); // Weniger Padding auf Mobil
+    }
+  }
+
+  &__title {
+    margin-bottom: var(--space-md); // Abstand unter der Überschrift
+    @media (max-width: 480px) {
+      font-size: var(--text-4xl); // Kleinere Überschrift auf Smartphones
+    }
+  }
+
+  &__subtitle,
+  &__description {
+    @media (max-width: 480px) {
+      font-size: var(--text-md); // Untertitel/Description kleiner auf Mobil
+    }
+  }
+}
+
+// Hier passiert erst der Effekt, wegen fixed
+.hero__bg {
+  position: fixed; // Fixiert für Parallax < immer am Viewport ausgerichtet, nicht am Parent
+
+  // Spannt das Element über den gesamten Viewport auf < Alle vier Seiten = 0 < Element füllt den kompletten Viewport
+  top: 0; // Oben am Viewport
+  left: 0; // Links am Viewport
+  right: 0; // Rechts am Viewport
+  bottom: 0; // Unten am Viewport
+
+  z-index: -1; // Ganz hinten
+}
+
+
+/*
+Aufgabenstellung: In den scss Dateien werden eigene mixins, Module und Kontrollstrukturen erarbeitet
+Lösung: 
+Mixins; @mixin, @include
+Module; @use
+Kontrollstrukturen; @if, @for in Datei TYPOGRAPHY
+
+
+z-index + position bestimmen die Layer-Reihenfolge:
+Hero-BG -1 < ganz hinten 
+Sections 1 < über Hintergrund, unter Hero
+Header 100 < immer oben, über allem
+*/

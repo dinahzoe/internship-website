@@ -1,0 +1,30 @@
+// Custom Property definieren
+:root {
+  --transition-duration: 0.6s; // Standardwert, wird von JS überschrieben 
+}
+
+// ANIMATIONS für Scroll-Animation, die in main.js verwendet wird
+
+.reveal {
+  opacity: 0; // Start unsichtbar
+  transform: translateY(30px); // Technisch < verschiebt das Element 30px nach unten; Visuell: es startet "tiefer" und unsichtbar und dann rutscht es nach oben
+  // Variable verwenden statt fester Wert:
+  transition: opacity var(--transition-duration), // Wie lange opacity (Transparenz) ändert
+              transform var(--transition-duration); // Wird von JavaScript gesteuert < Wie lange transform ändert
+
+  &.active {
+    opacity: 1; // sichtbar
+    transform: translateY(0); // Technisch: setzt Element auf normale Position; Visuell: es steht am richtigen Platz
+  }
+}
+
+// Ausnahmen für große Container und Slider
+section.reveal,
+header.reveal,
+footer.reveal,
+.hero.reveal,
+.slider-container .reveal,
+.project-card.reveal {
+  opacity: 1; // sofort sichtbar
+  transform: none; // keine Transform-Animation
+}

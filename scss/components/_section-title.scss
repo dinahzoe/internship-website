@@ -1,0 +1,13 @@
+// Überschriften Styling
+
+.section__title {
+  &.modern { // Flexibilität für andere Titel Varianten
+    color: var(--blue); // Blau für moderne Überschrift
+    border-left: var(--border-width-accent) solid var(--blue-light); // Linker Balken < links: Dicke des Balkens, rechts: Farbe des Balkens und Linienart(solid)
+    //  border-left nur für den linken Rahmen nicht den kompletten
+    padding-left: var(--space-sm); // Abstand links vom Balken zwischen Text also Überschrift
+    margin-block-end: var(--space-lg); // Abstand nach unten zu cards
+    text-transform: uppercase; // Großbuchstaben
+    letter-spacing: var(--tracking-widest); // Buchstabenabstand vergrößern
+  }
+}

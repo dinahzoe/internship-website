@@ -1,0 +1,26 @@
+// BASE / FONTS (Schriftarten)
+// Direkte Schrift-Einstellungen wie in Best Practice
+
+// Widerholung: Alle Elemente (body, p, h1, h2, ...) erben automatisch von :root
+:root {
+  // Schrift Einstellungen direkt setzen 
+  font-family: sans-serif; // Fallback-System
+  line-height: 1.6; // Zeilenabstand
+}
+
+// BODY SCHRIFT
+body {
+  font-size: 16px;
+  color: hsl(0, 0%, 13%);  
+}
+
+// ÜBERSCHRIFTEN
+h1, 
+h2, 
+h3, 
+h4, 
+h5 {
+  font-weight: var(--font-bold);
+  line-height: 1;  // Zeilenabstand < line-height regelt Zeilenabstand, Spacing-Variablen Abstände zwischen Elementen
+  color: var(--blue);
+}

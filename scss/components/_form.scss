@@ -1,0 +1,94 @@
+// FORM
+
+// das ganze Formular, welches zu sehen ist
+.form-wrapper {
+  max-width: 800px;            // Formular maximal 800px breit
+  margin: 0 auto;              // horizontal zentriert < setzt links & rechts automatisch gleichen Abstand < Horizontal zentrieren links <-> rechts in die Mitte < Vertikal zentrieren oben <> unten in die Mitte
+}
+
+// Rahmen um einzelne gebündelte Daten 
+.form-fieldset {
+  border: solid var(--blue-light); // blauer Rahmen
+  border-radius: var(--radius);   // abgerundete Ecken
+  padding: var(--space-md);       // Innenabstand
+  margin-bottom: var(--space-md);// Abstand nach unten
+  background: var(--white);       // weißer Hintergrund
+}
+
+// Überschrift der einzelnen gebündelten Daten 
+legend {
+  color: var(--blue);             // Textfarbe blau
+  font-weight: var(--font-bold);  // fette Schrift
+  font-size: var(--text-2xl);     // größere Schrift
+  padding: 0 var(--space-0-5);    // kleiner Abstand links/rechts
+}
+
+// Abstand unter den einzelnen gebündelten Daten 
+.form-group {
+  margin-bottom: var(--space-md); // Abstand zum nächsten Feld
+}
+
+// Überschrift der einzelnen Daten 
+label {
+  display: block;                 // eigene Zeile über Input < untereinander
+  color: var(--blue);             // blau
+  font-weight: var(--font-semibold); // halbfett
+  margin-bottom: var(--space-0-5);// Abstand zum Input
+}
+
+// Eingabefelder
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;                    // volle Breite
+  padding: var(--space-0-8);      // Innenabstand
+  border: solid var(--blue-border); // heller Rahmen
+  border-radius: var(--radius-sm);// leicht abgerundet
+  font-size: var(--text-lg);      // Schriftgröße 16px+
+  &:focus {
+    outline: none;                // Standard-Outline entfernen ( pinker Rahmen )
+    border-color: var(--blue);    // dunklerer Rahmen bei Aktiv
+  }
+  &::placeholder {
+    color: var(--gray-400);       // grauer Platzhalter < Schrift
+  }
+}
+
+// Layout/ Placement der Buttons
+.form-buttons {
+  display: flex;                  // Flexbox für Buttons
+  gap: var(--space-sm);           // Abstand zwischen Buttons
+  justify-content: center;        // zentriert
+  margin-top: var(--space-lg);    // Abstand zum Formular
+  flex-wrap: wrap;                // bei kleinen Bildschirmen umbrechen
+}
+
+// Button selbst das Design < ohne color (kommt unten)
+.btn {
+  padding: var(--space-0-8) var(--space-lg); // Innenabstand
+  border: none;                   // kein Standard-Rahmen
+  border-radius: var(--radius-sm);// abgerundete Ecken
+  font-size: var(--text-lg);      // Schriftgröße
+  font-weight: var(--font-semibold);// halbfett
+  &:hover {
+    box-shadow: var(--shadow-hover); // größerer Schatten
+  }
+}
+
+// linker Button Farbe etc.
+.btn-primary {
+  background: var(--blue);        // blaue Hauptfarbe
+  color: var(--white);            // weißer Text
+  &:hover {
+    background: var(--blue-light);// heller beim Hover
+  }
+}
+
+// rechter Button Farbe etc.
+.btn-secondary {
+  background: var(--gray-200);    // hellgrau
+  color: var(--gray-800);         // dunkler Text
+  &:hover {
+    background: var(--gray-300);  // dunkler beim Hover
+  }
+}

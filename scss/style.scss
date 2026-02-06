@@ -1,0 +1,43 @@
+// STYLES.SCSS < HAUPTDATEI
+
+// SETTINGS 
+@use 'settings/color-scheme';
+@use 'settings/mixins';
+@use 'settings/spacing';
+@use 'settings/typography';
+@use 'settings/fonts';
+
+// BASE 
+@use 'base/reset';
+@use 'base/basic';
+
+// LAYOUT 
+@use 'layout/layout';
+
+// COMPONENTS 
+@use 'components/hero';
+@use 'components/slider';
+@use 'components/sections';
+@use 'components/cards';
+@use 'components/form';
+@use 'components/table';
+@use 'components/section-title';
+
+// ANIMATIONS 
+@use 'animations/animations';
+
+// RESPONSIVE
+@use 'responsive/responsive';
+
+
+
+
+
+
+// Aufgabenstellung: Als Organisationsform wird ITCSS, SMACSS oder OOCSS gewählt
+// Lösung: 
+// styles.scss: ITCSS-Struktur mit 6 Layern(ANIMATIONS, RESPONSIVE usw.),
+// Namenskonvention: BEM: Block(.nav, .btn, .project-card; eigenständige Komponente), 
+                  // Block__Element: inneres Teil des Blocks (__list, __link, __content)
+                  // Block--Modifier: andere Version (Farbe, Zustand, Größe)
+// OOCSS-Prinzipien: Trennung von Struktur(Layout,Größe..) und Skin(Farbe, Styling) z.B. <h2 class="section__title modern">Überschrift</h2>; Struktur = section__title und Skin = modern

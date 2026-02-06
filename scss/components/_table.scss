@@ -1,0 +1,62 @@
+// TABELLEN STYLING
+
+/* CONTAINER
+  für Tabellenüberschrift */
+.table-container {
+  background: var(--white); // weißer Hintergrund
+  border-radius: var(--radius); // abgerundete Ecken
+}
+
+/* CAPTION
+   Tabellenüberschrift */
+caption {
+  font-size: var(--text-3xl); // große Schrift
+  font-weight: var(--font-bold); // fett
+  padding: var(--space-sm); // Innenabstand
+  color: var(--blue); // blaue Farbe
+  text-align: center; // zentriert
+}
+
+/* TABLE 
+   Grundstruktur der Tabelle */
+table {
+  border-collapse: collapse; // keine doppelten Linien
+  width: 100%; // volle Breite
+  background: var(--white); // Hintergrundfarbe
+}
+
+/* TH 
+   Tabellenüberschriften */
+th {
+  background: var(--blue); // blaue Zellen
+  color: var(--white); // weiße Schrift
+  font-weight: var(--font-bold); // fett
+  text-align: left; // linksbündig
+  padding: var(--space-sm); // Innenabstand
+  text-transform: uppercase; // GROSSBUCHSTABEN
+  letter-spacing: var(--tracking-wider); // Abstand zwischen Buchstaben
+}
+
+/* TD 
+   Tabellenzellen */
+td {
+  border: 1px solid var(--blue-border); // dezente Linien dazwischen
+  padding: var(--space-sm); // Innenabstand
+  text-align: left; // linksbündig
+}
+
+/* TBODY TR 
+   Zeilen innerhalb des Table Body */
+tbody tr {
+  &:nth-of-type(even) {
+    // alle Elemente vom aktuellen Typ, die an einer geraden Position innerhalb ihres Elternteils stehen
+    background: var(--apricot); // Zebra-Streifen: gerade Zeilen hell
+  }
+
+  &:hover {
+    background: var(--blue-table) // Hover-Farbe in Tabelle für jede Zeile
+  }
+}
+
+
+

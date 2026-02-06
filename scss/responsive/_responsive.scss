@@ -1,0 +1,76 @@
+/* RESPONSIVE TABLES */
+
+@media screen and (max-width: 800px) {
+
+  .table-container table {
+    // betrifft nur Tabellen im Container, nicht Navigation etc.
+
+    border: 0; // Rahmen entfernen
+
+    caption {
+      font-size: var(--text-2xl); // Schriftgröße der Tabellenüberschrift anpassen
+    }
+
+    thead {
+      display: none; // Kopfzeile verstecken von Tabelle Desktop-Ansicht
+    }
+
+    tr { // Zeile der Tabelle < Eltern < Label
+      display: block; // Zeile als Block, wirkt wie Karte < optisch schöner, wäre sonst nicht schön plaziert < ohne block blieben die Zeilen Tabellen-typisch nebeneinander und ließen sich nicht so frei gestalten
+      margin-bottom: var(--space-md); // Abstand unter jeder Zeile
+      background: var(--white); // Hintergrundfarbe Weiß
+      border-radius: var(--radius); // Abgerundete Ecken
+      padding: var(--space-sm); // Innenabstand innerhalb der Zeile
+      box-shadow: var(--shadow); // Schatten für optische Tiefe
+    }
+
+    td { // Zelle in der Zeile < Kind < Wert
+      border: none; // Rahmen der Zellen entfernen
+      display: block; // jede Zelle in eigene Zeile < untereinander, sonst nebeneinander
+      text-align: left; // Text linksbündig
+      padding: var(--space-0-5) 0; // vertikales Padding, horizontal 0
+      position: relative; // Bezugspunkt für ::before < siehe unten
+      padding-left: 130px; // Platz für Label links < ohne das wird überschnitten
+
+      &::before { // td::before fügt automatisch etwas vor dem Zelleninhalt ein
+        // Label, weil es vor dem Zelleninhalt eingefügt wird und Wert orientiert sich daran über position: relative
+        content: attr(data-label); // zeigt Label aus data-label Attribut, also zeigt "Name:", "Alter:" etc. automatisch vor jedem Wert < ohen das gäbe es z.B. kein "Name:"
+        font-weight: var(--font-bold); // fettschrift
+        color: var(--blue); // Farbe Blau
+        position: absolute; // absolut innerhalb der Zelle < ohne relative würde sich das absolute am nächsthöheren Container orientieren und nicht an der Zelle selbst
+        // relative = Zelle als Bezugspunkt, absolute = Label genau darin platzieren < weil ::before absolut innerhalb der Zelle positioniert werden soll, und dafür muss die Zelle (td) als Bezugspunkt position: relative haben
+        left: 0; // ganz links, Label wird links fixiert
+      }
+    }
+  }
+
+  /* Globale Anpassungen für alle Tabellen auf kleinen Bildschirmen */
+  table,
+  th,
+  td,
+  caption {
+    font-size: var(--text-md); // kleinere Schrift für bessere Lesbarkeit
+    padding: var(--space-0-5); // weniger Innenabstand
+  }
+}
+
+// Druckversion (nicht-auflösungsbasiertes Media Query < bezieht sich auf Medium, nicht auf Breite < für Drucker/PDF-Export, unabhängig von Bildschirmgröße)
+@media print {
+
+  // Formulare beim Drucken ausblenden
+  form {
+    display: none;
+  }
+
+  // Navigation und Footer entfernen
+  .header,
+  .footer {
+    display: none;
+  }
+
+  // Boxen ohne Schatten
+  .box,
+  .project-card {
+    box-shadow: none;
+  }
+}

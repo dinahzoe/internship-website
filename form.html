@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontaktformular – HTML Formulare</title>
+  <meta name="author" content="Dinah-Zoe Neumaier">
+  <meta name="date" content="2025-10-12">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <!-- HEADER MIT NAVIGATION -->
+  <header class="header reveal">
+    <!-- .header = bleibt beim Scrollen oben kleben, blauer Hintergrund -->
+    <!-- .reveal = wird beim Scrollen sichtbar (Animation) -->
+    
+    <nav aria-label="Hauptnavigation">
+      <!-- aria-label = für Screenreader, sagt "Das ist die Hauptnavigation" -->
+      
+      <ul class="nav__list">
+        <!-- .nav__list = Links nebeneinander in einer Reihe -->
+        
+        <li><a href="index.html" class="nav__link">Zurück zur Übersicht</a></li>
+        <!-- .nav__link = macht Links weiß, fett und in GROSSBUCHSTABEN -->
+        
+        <li><a href="index.html#praktikum" class="nav__link">Überblick</a></li>
+        <!-- #praktikum = springt zur Überblick-Section auf index.html -->
+        
+        <li><a href="index.html#technologien" class="nav__link">Technologien</a></li>
+        <li><a href="index.html#bericht" class="nav__link">Aufgaben</a></li>
+        <li><a href="index.html#projekte" class="nav__link">Code</a></li>
+        <li><a href="index.html#fazit" class="nav__link">Fazit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION (Großer Kopfbereich) -->
+  <section class="hero">
+    <!-- .hero = großer Bereich (80% Bildschirmhöhe), Text ist zentriert -->
+    
+    <div class="hero__bg"></div>
+    <!-- .hero__bg = nur für Hintergrundbild, bleibt beim Scrollen stehen -->
+    
+    <div class="hero__content reveal">
+      <!-- .hero__content = Box für den Text, max 900px breit, leicht transparent mit Blur -->
+      <!-- .reveal = fade-in Animation beim Laden -->
+      
+      <h1 class="hero__title">Kontaktformular</h1>
+      <!-- .hero__title = extra Abstand nach unten -->
+      
+      <p class="hero__subtitle">Nehmen Sie Kontakt mit uns auf</p>
+      <!-- .hero__subtitle = kleinere Schrift auf Handy -->
+    </div>
+  </section>
+
+  <!-- HAUPTINHALT -->
+  <main>
+    <section>
+      <!-- section = farbiger Hintergrund (rosa oder beige) -->
+      
+      <div class="container">
+        <!-- .container = begrenzt Breite auf max 1200px, zentriert -->
+        
+        <div class="form-wrapper box reveal">
+          <!-- .form-wrapper = begrenzt Formular auf max 800px Breite, zentriert -->
+          <!-- .box = weiße Box mit Schatten, Padding, abgerundete Ecken -->
+          <!-- nur Container animiert -->
+          
+          <h2 class="section__title modern">Ihre Nachricht an uns</h2>
+          <!-- .section__title.modern = blau, mit blauem Balken links, GROSSBUCHSTABEN -->
+          
+          <form action="index.html" method="post" aria-labelledby="form-heading">
+            <!-- aria-labelledby = verknüpft Formular mit Überschrift (für Screenreader) -->
+            
+            <!-- PERSÖNLICHE DATEN -->
+            <fieldset class="form-fieldset">
+              <!-- fieldset = gruppiert zusammengehörige Felder -->
+              <!-- .form-fieldset = blauer Rahmen, abgerundete Ecken, weißer Hintergrund -->
+              
+              <legend>Persönliche Daten</legend>
+              <!-- legend = Überschrift für fieldset, blau und fett -->
+              
+              <div class="form-group">
+                <!-- .form-group = Abstand nach unten zum nächsten Feld -->
+                
+                <label for="fn">Vorname</label>
+                <!-- label = Beschriftung ÜBER dem Eingabefeld, blau und halbfett -->
+                <!-- for="fn" = verbindet Label mit Input #fn -->
+                
+                <input 
+                  id="fn" 
+                  type="text" 
+                  name="fn" 
+                  placeholder="Max" 
+                  required
+                  pattern="^[A-ZÄÖÜ][a-zäöüß]{1,}$"
+                  title="Nur Buchstaben, erster Buchstabe groß">
+                <!-- id = damit Label weiß zu welchem Feld es gehört -->
+                <!-- type="text" = normales Textfeld -->
+                <!-- required = Feld MUSS ausgefüllt werden -->
+                <!-- pattern = nur Buchstaben erlaubt, erster Buchstabe groß -->
+                <!-- placeholder = grauer Beispieltext im Feld -->
+                <!-- input = volle Breite, blauer Rahmen, wird dunkler beim Fokus -->
+              </div>
+
+              <div class="form-group">
+                <label for="ln">Nachname</label>
+                <input
+                  id="ln"
+                  type="text"
+                  name="ln"
+                  placeholder="Mustermann"
+                  pattern="^[A-Z,Ü,Ä,Ö]{1}[a-z,ü,ä,ö,ß]{1,}"
+                  aria-label="letters-only">
+                <!-- aria-label = alternative Beschreibung für Screenreader -->
+              </div>
+
+              <div class="form-group">
+                <label for="mail">E-Mail-Adresse</label>
+                <input 
+                  id="mail" 
+                  name="mail" 
+                  type="email" 
+                  required
+                  placeholder="max@beispiel.de">
+                <!-- type="email" = prüft automatisch ob @ vorhanden ist -->
+              </div>
+            </fieldset>
+
+            <!-- THEMENGEBIET -->
+            <fieldset class="form-fieldset">
+              <legend>Themengebiet</legend>
+              
+              <div class="form-group">
+                <label for="topic">Thema auswählen</label>
+                <input 
+                  list="topics" 
+                  id="topic" 
+                  name="topic" 
+                  placeholder="Thema auswählen oder eingeben">
+                <!-- list="topics" = verbindet Input mit der Vorschlagsliste unten -->
+                <!-- Nutzer kann tippen ODER aus Liste wählen -->
+                
+                <datalist id="topics">
+                  <!-- datalist = Vorschlagsliste die beim Tippen erscheint -->
+                  <option value="Frage">
+                  <option value="Kommentar">
+                  <option value="Hilfe">
+                </datalist>
+              </div>
+            </fieldset>
+
+            <!-- NACHRICHT -->
+            <fieldset class="form-fieldset">
+              <legend>Ihre Nachricht</legend>
+              
+              <div class="form-group">
+                <label for="message">Haben Sie noch Fragen oder Anmerkungen?</label>
+                <textarea 
+                  id="message" 
+                  placeholder="Ihre Nachricht ..."></textarea>
+                <!-- textarea = mehrzeiliges Textfeld, größer als input -->
+                <!-- volle Breite, blauer Rahmen -->
+              </div>
+            </fieldset>
+
+            <!-- BUTTONS -->
+            <div class="form-buttons">
+              <!-- .form-buttons = Buttons nebeneinander, zentriert, umbrechen auf Handy -->
+              
+              <input type="submit" value="Absenden" class="btn btn-primary">
+              <!-- .btn = Basis-Styling für alle Buttons (Padding, abgerundete Ecken) -->
+              <!-- .btn-primary = BLAU mit weißer Schrift (Hauptaktion) -->
+              <!-- type="submit" = sendet Formular ab -->
+              
+              <input type="reset" value="Zurücksetzen" class="btn btn-secondary">
+              <!-- .btn-secondary = GRAU mit dunkler Schrift (Nebenaktion) -->
+              <!-- type="reset" = löscht alle Eingaben -->
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- .footer = blauer Hintergrund, weißer Text, zentriert -->
+    
+    <div class="container">
+      <p>&copy; 2024 Dinah-Zoe Neumaier. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT FÜR SCROLL ANIMATION -->
+  <script src="js/main.js"></script>
+  <!-- main.js = macht .reveal Elemente beim Scrollen sichtbar -->
+</body>
+</html>
+

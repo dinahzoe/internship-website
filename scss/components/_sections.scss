@@ -1,0 +1,68 @@
+// SECTIONS
+// Ordnet Text, Bilder und Videos
+
+// Allgemeine Einstellungen Container
+.about__inner,
+.erfahrungen__inner,
+.bericht__inner {
+  display: flex; // Flexbox-Layout: Text + Bild nebeneinander
+  gap: var(--space-lg); // Abstand zwischen Flex-Items (Text & Bild)
+  align-items: flex-start; // Elemente oben ausrichten
+
+  @media (max-width: 1024px) {
+    flex-flow: column nowrap; // Tablet/Mobil: Elemente untereinander
+  }
+}
+
+// Platz gleichmäßig zwischen Text & Bild teilen
+.about__text,
+.about__image,
+.erfahrungen__text,
+.erfahrungen__image {
+  flex: 1; // beide Bereiche gleich viel Platz (50/50)
+  min-width: 300px; // Mindestbreite 300px, verhindert zu schmale Boxen
+
+  @media (max-width: 1024px) {
+    min-width: 100%; // volle Breite auf Tablet/Mobil
+  }
+}
+
+// für das Video 1/3 und legt Text auf 2/3 der Breite
+.bericht__text {
+  flex: 2; // Text 2/3 der Breite, Video 1/3 < Element bekommt doppelt so viel verfügbaren Platz wie ein Element mit flex: 1
+  min-width: 0; // Text darf kleiner werden, damit Video Platz hat
+
+  @media (max-width: 1024px) {
+    min-width: 100%; // volle Breite auf Tablet/Mobil
+  }
+}
+
+// Video-Container: Größe, Position, Abrundung und Schatten
+.bericht__video {
+  width: 300px;  // Container auf Desktop 300px breit, Video skaliert darin
+
+  @media (max-width: 1024px) {
+    width: 100%; // volle Breite auf Tablet/Mobil
+    padding-bottom: var(--space-md); ; // Abstand unter Video
+    justify-content: center; // Video horizontal zentrieren < Flex-Kinder (Video) werden horizontal zentriert
+  }
+
+  video {
+    width: 100%; // Video füllt Container
+    max-width: 420px; // Obergrenze der Breite, sonst nimmt es die ganze Breite vom Bilschirm ein
+    border-radius: var(--radius); // abgerundete Ecken
+    box-shadow: var(--shadow); // Schatten für optische Tiefe
+  }
+}
+
+// Bilder: Größe, Zuschnitt, Abrundung und Schatten
+.about__image img,
+.bericht__image img,
+.erfahrungen__image img,
+.project-card__content img {
+  width: 100%; // Bild füllt Container
+  max-height: 600px; // maximale Höhe verhindern zu große Bilder
+  object-fit: cover; // Bild wird beschnitten, füllt Container < wichtig bei responsive 
+  border-radius: var(--radius); // abgerundete Ecken
+  box-shadow: var(--shadow); // Schatten für Tiefe
+}

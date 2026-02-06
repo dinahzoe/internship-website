@@ -1,0 +1,75 @@
+// SETTINGS / COLOR SCHEME
+
+$blue: hsl(200, 85%, 38%);        // Primärfarbe
+$blue-light: hsl(200, 85%, 48%);  // Hover / heller
+$blue-border: hsl(200, 85%, 85%); // Dezente Rahmen
+$blue-table: hsl(200, 85%, 95%); // Table Body Hover
+
+
+$apricot: hsl(249, 100%, 99%);   // Heller Hintergrund
+$rose: hsl(203, 100%, 97%);      // Alternativer Hintergrund
+
+$white: hsl(0, 0%, 100%);        // Weiß
+$gray-100: hsl(0, 0%, 95%);
+$gray-200: hsl(0, 0%, 85%);
+$gray-300: hsl(0, 0%, 75%);
+$gray-400: hsl(0, 0%, 60%);
+$gray-800: hsl(0, 0%, 20%);      // Dunkler Text
+
+$code-bg: #1e1e1e;               // Code-Hintergrund
+$code-text: #d4d4d4;             // Code-Text
+
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+$shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 12px 20px rgba(0, 0, 0, 0.12);
+$shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+$radius: 10px;                   // Standard Radius
+$radius-sm: 5px;
+$radius-xs: 3px;
+$radius-pill: 50px;
+
+$border-width: 2px;
+$border-width-thick: 3px;
+$border-width-heavy: 4px;
+$border-width-accent: 6px;
+
+// SCSS < CSS Custom Properties
+:root {
+  --blue: #{$blue};
+  --blue-light: #{$blue-light};
+  --blue-border: #{$blue-border};
+  --blue-table: #{$blue-table};
+
+
+  --apricot: #{$apricot};
+  --rose: #{$rose};
+
+  --white: #{$white};
+  --gray-100: #{$gray-100};
+  --gray-200: #{$gray-200};
+  --gray-300: #{$gray-300};
+  --gray-400: #{$gray-400};
+  --gray-800: #{$gray-800};
+
+  --code-bg: #{$code-bg};
+  --code-text: #{$code-text};
+
+  --shadow: #{$shadow};
+  --shadow-sm: #{$shadow-sm};
+  --shadow-lg: #{$shadow-lg};
+  --shadow-hover: #{$shadow-hover};
+
+  --radius: #{$radius};
+  --radius-sm: #{$radius-sm};
+  --radius-xs: #{$radius-xs};
+  --radius-pill: #{$radius-pill};
+
+  --border-width: #{$border-width};
+  --border-width-thick: #{$border-width-thick};
+  --border-width-heavy: #{$border-width-heavy};
+  --border-width-accent: #{$border-width-accent};
+}
+
+// Aufgabenstellung: Dateien schmal, Redundanzen ausgemerzt
+// Lösung: Durch zentrale Variablen (z. B. für Color-Scheme, Spacing) werden Redundanzen vermieden und Dateien schlank gehalten

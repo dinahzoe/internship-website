@@ -1,0 +1,76 @@
+// LAYOUT (MIT INTRINSISCHEN TECHNIKEN)
+  
+
+/* HEADER mit nav außen, damit es erst einmal erscheint */
+.header {
+  display: flex; // Flexbox für horizontales Layout, damit Kinder nebeneinander in einer Zeile
+  align-items: center; // vertikal zentriert
+  justify-content:  flex-start; // Elemente verteilen, Platz dazwischen < verteilt die Elemente in der Flexbox so, dass das erste Kind links am Container klebt
+  background: var(--blue); // blauer Hintergrund
+  height: 90px; // feste Höhe 90px vom Balken 
+  padding: 0 var(--space-lg); // innen: oben/unten 0, links/rechts = 2rem
+  position: sticky; // beim Scrollen oben klebend
+  top: 0; // klebt am oberen Rand
+  z-index: 100; // liegt über allen anderen Inhalten
+   
+  @media (max-width: 900px) {
+    padding: var(--space-2xl) var(--space-lg); // mehr Abstand oben/unten bei größerem Screen
+  }
+  
+}
+
+/* NAVIGATION innen */
+.nav__list {
+  display: flex; // Links nebeneinander bei li < flex 
+  flex-wrap: wrap; // Links umbrechen, falls zu eng
+  justify-content: center; // immer zentriert < ! wichtig bei responsive
+  gap: 2vw; // Abstand zwischen Links 2% der Viewport-Breite
+  list-style: none; // Aufzählungspunkte entfernen
+
+  @media (max-width: 480px) { // Mobil
+    gap: 3vw; // horizontaler Abstand kleiner
+  }
+}
+
+.nav__link {
+  color: var(--white); // weiße Schrift
+  letter-spacing: var(--tracking-wider); // Buchstabenabstand erweitern
+  font-weight: var(--font-semibold); // halb-fett
+  text-transform: uppercase; // alle Buchstaben groß
+  white-space: nowrap; // Link bricht nicht um < jeder einzelne Link
+}
+
+/* SECTION NACH hero */
+section {
+  padding: var(--space-2xl) var(--space-lg); // oben/unten = 4rem, links/rechts = 2rem, sonst überschneiden sich Hero und section 
+  background-color: var(--white); // Standard weiß
+  position: relative; // Referenzpunkt für absolute Kinder < ohne position relative würden sie sich am Body oder unerwartet platzieren
+  // setzt den Bezugspunkt für absolute Kindern 
+  // eher wichtig füt z:
+  z-index: 1; // über Hintergrund
+  // Relative + z-index = Hintergrund-Sections unter Hero korrekt layern, auch ohne absolute Kinder
+
+  &:nth-of-type(odd) {
+    background-color: var(--rose); // ungerade Sections rosa
+  }
+
+  &:nth-of-type(even) {
+    background-color: var(--apricot); // gerade Sections apricot
+  }
+}
+
+/* FOOTER */
+.footer {
+  background: var(--blue); // gleiche blaue Farbe wie Header
+  color: var(--white); // weiße Schrift
+  text-align: center; // zentriert
+  padding: var(--space-lg) var(--space-sm); // innen: oben/unten = 2rem, links/rechts = 16px
+  font-size: var(--text-md); // 14px < Schriftgröße
+  position: relative; // Referenzpunkt < hier relative: aktiviert z-index
+  z-index: 1; // über Hintergrund < so wie bei section
+}
+
+/* LINKS */
+a {
+  text-decoration: none; // keine Unterstreichung
+}

@@ -1,0 +1,151 @@
+// Slider = Karussell zum Durchklicken < funktioniert ohne JavaScript weil Radio-Buttons merken sich den aktiven Slide
+@use '../settings/spacing' as *;
+@use '../settings/typography' as *;
+
+
+.slider-container input[type="radio"] {
+  /* Alle Radio-Buttons im Slider < brauchen sie für die Logik, wollen sie aber nicht sehen */
+  position: absolute; // aus dem Layout nehmen
+  opacity: 0; // unsichtbar
+  pointer-events: none; // nicht anklickbar < Idee von hier: https://prismic.io/blog/css-sliders
+
+}
+
+.slider-container {
+  /* Äußerer Rahmen des Sliders */
+  position: relative; // Bezugspunkt für Buttons
+  padding: 0 $space-3xl; // Slider-Buttons haben Platz außerhalb des Contents < schiebt den Inhalt des Elements von den linken und rechten Rändern nach innen, aber oben und unten kein Innenabstand < Je größer padding-left / padding-right, desto weniger Platz bleibt für die Kinder
+  overflow: hidden; // nur ein Slide sichtbar
+  width: 100%;
+
+  @media (max-width: 900px) {
+    /* Auf Tablet/Mobil: kein klassischer Slider, sondern horizontal scrollen */
+    overflow-x: auto;
+    padding-bottom: var(--space-sm);
+  }
+
+  @media (max-width: 900px) {
+    /* Tablet Hochformat */
+    border: solid var(--blue); // durchgezogener Rahmen in Blau (CSS-Variable)
+    border-radius: var(--radius); // abgerundete Ecken
+    background: var(--white); // weißer Hintergrund
+    padding: var(--space-md) 0 $space-2xl 0; // Innenabstand: oben, rechts, unten, links < ansonsten zu schmal innerhalb des Rahmens
+    // $space-negative-lg bei padding nicht möglich, da negativ < bei margin ist okay
+  }
+}
+
+.slider-track {
+  /* Schiene, auf der alle Slides nebeneinander liegen */
+  display: flex; // Slides nebeneinander
+  width: 300%; // 3 Slides = 3 × 100%
+  transition: transform 0.5s ease-in-out; // sanfter Slide-Wechsel
+
+  @media (max-width: 900px) {
+    /* Mobil: scrollen statt sliden */
+    gap: var(--space-sm);
+    width: auto; // Element passt seine Breite automatisch an den verfügbaren Platz bzw. seinen Inhalt an
+  }
+}
+
+.slider-track .project-card {
+  /* Ein einzelner Slide */
+
+  min-width: 33.333%; // darf nicht schmaler werden <  1 von 3 Slides
+
+  @media (max-width: 900px) {
+    min-width: 85%; // fast volle Breite
+  }
+
+}
+
+
+// Slider-Position je nach aktivem Radio-Button
+// ~ bedeutet alles nachfolgende Geschwister-Element auf derselben Ebene
+
+#slide1:checked~.slider-track {
+  /* Slide 1 aktiv < nichts verschieben 
+  ~ .slider-track = alle .slider-track, die nach #slide1 im gleichen Container kommen
+  .slider-track ist also die bewegte Schiene, aber „nächster Slide“ passiert, weil ein anderer Radio-Button checked wird
+  -> HTML setzt checked (Ziel-Slide), CSS verschiebt .slider-track (zeigt ihn an)
+  Wenn #slide1 aktiviert ist, wird .slider-track verschoben, hier noch um 0%
+  */
+
+  transform: translateX(0%);
+}
+
+#slide2:checked~.slider-track {
+  /* Slide 2 aktiv < ein Slide nach links */
+
+  transform: translateX(-33.333%);
+}
+
+#slide3:checked~.slider-track {
+  /* Slide 3 aktiv < zwei Slides nach links */
+
+  transform: translateX(-66.666%);
+}
+
+
+// Pfeil-Buttons
+
+.slider-btn {
+  /* Vor / Zurück Buttons */
+  position: absolute;
+  top: 50%; // Button in der Mitte auf der y-Achse, nicht ganz unten
+  transform: translateY(-50%); // perfekt mittig < 50% hin + 50% zurück = perfekt zentriert
+  background: var(--blue);
+  color: var(--white); // Pfeil
+  padding: var(--space-0-8) var(--space-sm); // Innenabstand vergrößern
+  font-size: $text-4xl;
+  border-radius: var(--radius-sm); // Ränder abrunden
+  display: none; // nur anzeigen wenn erlaubt, erst mal werden keine Pfeile gezeigt
+
+  &:hover {
+    background: var(--blue-light);
+  }
+
+  @media (max-width: 900px) {
+    /* Mobil: keine Pfeile */
+    display: none !important; // ohne important wird trotzdem Pfeile abgezeigt
+  }
+
+}
+
+.slider-btn.prev {
+  left: $space-0-6; // links
+}
+
+.slider-btn.next {
+  right: $space-0-6; // rechts, ohne das wäre Button für rechts auf der linken Seite 
+}
+
+
+/*
+Welche Buttons sichtbar sind < vorher ist es display: none; 
+Wenn Slide 1 aktiv ist dann zeige den passenden Button alle anderen bleiben versteckt
+ohne das werden gar keine Buttons gezeigt, wegen display: none; 
+
+#slide1:checked -> Radio-Button von Slide 1 ist aktiv
+~ -> sucht nachfolgenden Geschwistern
+.slider-btn.slider-next-1 -> der „Weiter“-Button für Slide 1
+
+:checked -> Zustand: ist ausgewählt / aktiv < Das Element mit ID slide1, wenn es gerade aktiv (angeklickt) ist
+*/
+
+#slide1:checked~.slider-btn.slider-next-1 {
+  /* Erster Slide, Button jetzt anzeigen < nur Weiter */
+  display: block; // block reicht, weil Button nur sichtbar sein muss, kein eigenes Flex-Layout braucht
+}
+
+#slide2:checked~.slider-btn.slider-prev-2 {
+  display: block; // Zurück
+}
+
+#slide2:checked~.slider-btn.slider-next-2 {
+  display: block; // Weiter
+}
+
+#slide3:checked~.slider-btn.slider-prev-3 {
+  /* Letzter Slide < nur Zurück */
+  display: block;
+}

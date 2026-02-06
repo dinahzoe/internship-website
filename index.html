@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Praktikum bei donista</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <!-- HEADER MIT NAVIGATION -->
+  <header class="header reveal">
+    <!-- .header = bleibt beim Scrollen oben kleben, blauer Hintergrund -->
+    <!-- .reveal = wird beim Scrollen sichtbar (Animation) -->
+    
+    <nav>
+      <ul class="nav__list">
+        <!-- .nav__list = Links nebeneinander in einer Reihe -->
+        
+        <li><a href="#praktikum" class="nav__link">Überblick</a></li>
+        <!-- .nav__link = macht Links weiß, fett und in GROSSBUCHSTABEN -->
+        <!-- Ohne diese Klasse wären die Links blau (Standard) -->
+        
+        <li><a href="#bericht" class="nav__link">Aufgaben & Projekte</a></li>
+        <li><a href="#technologien" class="nav__link">Technologien</a></li>
+        <li><a href="#projekte" class="nav__link">Code-Beispiele</a></li>
+        <li><a href="#erfahrungen" class="nav__link">Arbeitsweise</a></li>
+        <li><a href="#fazit" class="nav__link">Fazit</a></li>
+        <li><a href="form.html" class="nav__link">Kontakt</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HAUPTINHALT -->
+  <main>
+
+    <!-- HERO SECTION MIT PARALLAX -->
+    <!-- .hero = _hero.scss: 80vh hoch, flexbox zentriert, weißer text 
+     Container (.hero) = Layout + Inhalt
+     Hintergrund (.hero__bg) = visueller Effekt
+     < Background fixed funktioniert nicht richtig mit flexbox
+     also ein Element macht Layout, das andere den visuellen Effekt
+     -->
+
+     <!-- Inhalt = <section>, <article>, <main> usw < Styling = <div> -->
+
+    <!-- HERO SECTION (Großer Kopfbereich) -->
+    <section class="hero">
+      <!-- .hero = großer Bereich (80% Bildschirmhöhe), Text ist zentriert -->
+      <!-- section = weil es ein echter Inhaltsbereich ist -->
+      
+      <div class="hero__bg"></div>
+      <!-- .hero__bg = nur für Hintergrundbild, bleibt beim Scrollen stehen (Parallax-Effekt) -->
+      <!-- div = weil es nur fürs Design ist, kein echter Inhalt -->
+      
+      <div class="hero__content reveal">
+        <!-- .hero__content = Box für den Text, max 900px breit, leicht transparent mit Blur -->
+        <!-- .reveal = fade-in Animation beim Laden der Seite -->
+        
+        <h1 class="hero__title">Portfolio — Praktikum bei donista</h1>
+        <!-- .hero__title = extra Abstand nach unten -->
+        
+        <p class="hero__subtitle">
+          Zeitraum: 01.07.2025 - 22.09.2025 | Rolle: Frontend-Entwicklung & Creative Media (Praktikant)
+        </p>
+        <!-- .hero__subtitle = kleinere Schrift auf Handy -->
+        
+        <p class="hero__description">
+          Während meines Praktikums bei donista war ich in die Weiterentwicklung der Plattform,
+          die Umsetzung interaktiver UI-Elemente und die Gestaltung animierter Social-Media-Inhalte eingebunden.
+        </p>
+        <!-- .hero__description = normale Beschreibung, kleinere Schrift auf Handy -->
+      </div>
+    </section>
+
+    <!-- ÜBERBLICK SECTION -->
+    <section id="praktikum">
+      <!-- #praktikum = Anker, damit Navigation hier hin springt -->
+      <!-- .reveal = section selbst animiert nicht, nur die Kinder drin -->
+      <!-- section = farbiger Hintergrund (rosa oder beige im Wechsel) -->
+      
+      <div class="about__inner container">
+        <!-- .container = begrenzt Breite auf max 1200px, zentriert -->
+        <!-- .about__inner = Text LINKS, Bild RECHTS (auf Handy untereinander) -->
+        
+        <div class="about__text">
+          <!-- .about__text = nimmt 50% vom Platz (links) -->
+          
+          <h2 class="section__title modern">Überblick</h2>
+          <!-- Flexibilität für andere Titel Varianten -->
+          <!-- .section__title = normale Überschrift -->
+          <!-- .modern = blau, mit blauem Balken links, GROSSBUCHSTABEN -->
+          
+          <div class="praktikum__info reveal">
+            <!-- .praktikum__info = weiße Box mit Schatten, hebt sich beim Hover -->
+            <!-- .reveal = fade-in beim Scrollen -->
+            
+            <h3>Unternehmen & Rolle</h3>
+            <p><strong>donista</strong> — Plattform für soziales Engagement</p> <!-- Wichtiger Inhalt = <strong> < Nur Design = CSS -->
+            <p>Meine Rolle: Frontend-Entwicklung & Creative Media (Praktikant)</p>
+          </div>
+
+          <div class="praktikum__info reveal">
+            <h3>Zeitraum</h3>
+            <p><strong>01.07.2025 bis 22.09.2025</strong></p>
+            <p>Praktikum mit Fokus auf Webentwicklung und Mediengestaltung</p>
+          </div>
+
+          <div class="praktikum__info reveal">
+            <h3>Technologien</h3>
+            <p><strong>Frontend:</strong> React, Next.js, TypeScript, Tailwind CSS</p>
+            <p><strong>Media & Animation:</strong> Remotion</p>
+            <p><strong>Backend-Anbindung:</strong> OpenAPI TypeScript, openapi-fetch-client</p>
+          </div>
+        </div>
+
+        <div class="about__image reveal">
+          <!-- .about__image = nimmt 50% vom Platz (rechts) -->
+          
+          <img src="assets/image/bild3.jpg" alt="Bild Überblick">
+          <!-- img = füllt Box komplett, max 600px hoch, abgerundete Ecken, Schatten -->
+        </div>
+      </div>
+    </section>
+
+    <!-- AUFGABEN & PROJEKTE SECTION -->
+    <section id="bericht">
+      <!-- #bericht = Anker für Navigation -->
+      
+      <div class="bericht__inner container">
+        <!-- .bericht__inner = Video LINKS (33%), Text RECHTS (66%) -->
+
+        <div class="bericht__video reveal">
+          <!-- .bericht__video = Container für Video, 300px breit -->
+          
+          <video controls autoplay loop muted width="400">
+            <!-- video = füllt Container, max 420px breit, abgerundete Ecken -->
+            <source src="assets/video/DonistaVideo.MP4" type="video/mp4">
+            Dein Browser unterstützt dieses Video-Format nicht.
+          </video>
+        </div>
+
+        <div class="bericht__text reveal">
+          <!-- .bericht__text = nimmt 2/3 vom Platz (rechts vom Video) -->
+          
+          <h2 class="section__title modern">Aufgaben & Projekte</h2>
+
+          <div class="bericht__week reveal">
+            <!-- .bericht__week = weiße Box mit Schatten -->
+            
+            <h3>Webentwicklung & UI-Design</h3>
+            
+            <ul class="bericht__tasks">
+              <!-- .bericht__tasks = entfernt die Aufzählungspunkte -->
+              <li>Entwicklung moderner, responsiver Frontend-Komponenten</li>
+              <li>Einführung wiederverwendbarer UI-Komponenten</li>
+              <li>Optimierung der Startseite durch dynamische Schlagwort-Rotation</li>
+            </ul>
+          </div>
+
+          <div class="bericht__week reveal">
+            <h3>Animation & Interaktive Inhalte</h3>
+            <ul class="bericht__tasks">
+              <li>Umsetzung von animierten Szenen und Reels mit Remotion</li>
+              <li>Gestaltung interaktiver Buttons und visueller Spendenprozesse</li>
+            </ul>
+          </div>
+
+          <div class="bericht__week reveal">
+            <h3>API-Integration & Backend</h3>
+            <ul class="bericht__tasks">
+              <li>Sichere Datenabfragen mit openapi-fetch-client</li>
+              <li>Dynamische Anzeige von Shops, Statistiken und Benutzerinfos</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIE-TABELLE -->
+    <section id="technologien">
+      <!-- #technologien = Anker für Navigation -->
+      
+      <div class="container">
+       <!-- .container = Wichtig für Basic -->
+
+        <h2 class="section__title modern">Verwendete Technologien</h2>
+        <!-- .modern = Wichtig für Überschrift -->
+
+        <div class="table-container reveal">
+          <!-- .table-container = weißer Hintergrund, abgerundete Ecken -->
+          
+          <table>            
+            <caption>Technologie-Stack im Praktikum</caption>
+            <!-- caption = Tabellenüberschrift, groß und blau -->
+            
+            <thead>
+              <!-- thead = Kopfzeile, blauer Hintergrund, weiße Schrift -->
+              <tr>
+                <th>Kategorie</th>
+                <th>Technologie</th>
+                <th>Verwendung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Kategorie: ">Frontend Framework</td>
+                <!-- data-label = wird auf Handy als "Kategorie:" vor dem Wert angezeigt -->
+                
+                <td data-label="Technologie: ">React & Next.js</td>
+                <td data-label="Verwendung: ">Komponentenbasierte UI-Entwicklung</td>
+              </tr>
+              <tr>
+                <td data-label="Kategorie: ">Programmiersprache</td>
+                <td data-label="Technologie: ">TypeScript</td>
+                <td data-label="Verwendung: ">Typsichere Entwicklung</td>
+              </tr>
+              <tr>
+                <td data-label="Kategorie: ">Styling</td>
+                <td data-label="Technologie: ">Tailwind CSS</td>
+                <td data-label="Verwendung: ">Utility-First CSS Framework</td>
+              </tr>
+              <tr>
+                <td data-label="Kategorie: ">Animation</td>
+                <td data-label="Technologie: ">Remotion</td>
+                <td data-label="Verwendung: ">Video- und Animationserstellung</td>
+              </tr>
+              <tr>
+                <td data-label="Kategorie: ">API</td>
+                <td data-label="Technologie: ">OpenAPI & openapi-fetch</td>
+                <td data-label="Verwendung: ">Typsichere Backend-Kommunikation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE-BEISPIELE MIT SLIDER -->
+    <section id="projekte">
+      <!-- #projekte = Anker für Navigation -->
+      
+      <div class="container">
+        <h2 class="section__title modern reveal">Code-Beispiele</h2>
+
+        <div class="slider-container reveal">
+          <!-- .slider-container = äußerer Rahmen für Slider, kann nur 1 Slide gleichzeitig zeigen -->
+
+          <!-- Radio-Buttons merken sich welcher Slide aktiv ist -->
+          <input type="radio" name="slider" id="slide1" checked>
+          <!-- checked = Slide 1 ist am Anfang aktiv -->
+          <input type="radio" name="slider" id="slide2">
+          <input type="radio" name="slider" id="slide3">
+          <!-- name="slider" = gruppiert alle 3 Radio-Buttons (nur einer kann aktiv sein) -->
+          <!-- id="slide1" = damit label for="slide1" darauf klicken kann < siehe unten Zeile 352 -->
+          <!-- checked = Slide 1 ist am Anfang aktiv -->
+
+          <div class="slider-track">
+            <!-- .slider-track = Schiene mit allen 3 Slides nebeneinander (300% breit) -->
+            <!-- verschiebt sich je nach aktivem Radio-Button nach links -->
+
+            <!-- SLIDE 1 -->
+            <article class="project-card">
+              <!-- .project-card = weiße Karte mit Schatten, nimmt 1/3 der Breite -->
+              
+              <div class="project-card__content">
+                <!-- .project-card__content = begrenzt Text auf 85% damit Pfeil-Buttons Platz haben -->
+                
+                <h3>Keyword Rotation</h3>
+                <p>
+                  Dynamische Schlagwort-Animation auf der Startseite mit React und TypeScript.
+                </p>
+                
+                <div class="project-card__tech">
+                  <!-- .project-card__tech = Tags nebeneinander mit Abstand -->
+                  
+                  <span class="tech-tag">React</span>
+                  <!-- .tech-tag = blauer Hintergrund, weiß, pillenförmig -->
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Hooks</span>
+                </div>
+                
+                <h4>Code-Beispiel (vereinfacht)</h4>
+                <pre><code>
+const keywords = ["Spenden", "Helfen", "Unterstützen"];
+const [index, setIndex] = useState(0);
+
+useEffect(() => {
+  const timer = setInterval(() => {
+    setIndex((prev) => (prev + 1) % keywords.length);
+  }, 3000);
+  return () => clearInterval(timer);
+}, []);
+            </code></pre>
+            <!-- pre = dunkler Hintergrund für Code, scrollbar wenn zu breit -->
+              </div>
+            </article>
+
+            <!-- SLIDE 2 -->
+            <article class="project-card">
+              <div class="project-card__content">
+                <h3>User Statistics</h3>
+                <p>
+                  Abruf und Anzeige von Benutzerstatistiken über API-Integration.
+                </p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">OpenAPI</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Next.js</span>
+                </div>
+                <h4>Code-Beispiel</h4>
+                <pre><code>
+const { data: userStats } = await client.GET(
+  "/v1/users/{userId}/stats",
+  { params: { path: { userId } } }
+);
+            </code></pre>
+              </div>
+            </article>
+
+            <!-- SLIDE 3 -->
+            <article class="project-card">
+              <div class="project-card__content">
+                <h3>Shop-Detail Header</h3>
+                <p>
+                  Anzeige von Shop-Details inkl. Navigation, Logo und Titel über API-Daten.
+                </p>
+                <div class="project-card__tech">
+                  <span class="tech-tag">OpenAPI</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Next.js</span>
+                </div>
+                <h4>Code-Beispiel (gekürzt)</h4>
+                <pre><code>
+&lt;Button onClick={() => router.back()}&gt;
+  &lt;ArrowLeft /&gt; Back
+&lt;/Button&gt;
+&lt;h1&gt;{shop.name}&lt;/h1&gt;
+&lt;Image src={shop.logoUrl} alt={shop.name} /&gt;
+            </code></pre>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- PFEIL-BUTTONS für Slider 
+           https://prismic.io/blog/css-sliders
+           -->
+          <!-- Werden mit CSS ein/ausgeblendet je nach aktivem Slide -->
+          <label for="slide1" class="slider-btn prev slider-prev-2" aria-label="Zum vorherigen Slide">&larr;</label>
+          <!-- .slider-btn = blaue Buttons links/rechts -->
+          <!-- .prev = linker Pfeil zurück (<-) 
+          Um von Slide X zurück zu Slide 1 zu wechseln, wird der prev-Button verwendet
+           -->
+          <!-- .slider-prev-2 = wird nur bei Slide 2 angezeigt und gelangt zu Slide 1-->
+
+          <!-- for="slide1" = klick auf Label aktiviert Radio-Button #slide1 -->
+          <!-- aria-label = beschreibt Button für Screenreader (weil nur Pfeil, kein Text) aria-label = Barrierefreiheit für blinde Menschen -->
+          <!-- &larr; = HTML-Entity für Pfeil-Symbol < wird im Browser als Pfeil nach links „<-“ angezeigt < &rarr für rechts -->
+                    
+          <label for="slide2" class="slider-btn prev slider-prev-3" aria-label="Zum vorherigen Slide">&larr;</label>
+          <label for="slide2" class="slider-btn next slider-next-1" aria-label="Zum nächsten Slide">&rarr;</label>
+          <!-- hier komme ich von Slide 1 zu Slide 2 -->
+          <!-- .next = rechter Pfeil vorwärts (->) -->
+          <!-- .slider-next-1 = wird nur bei Slide 1 angezeigt -->
+          
+          <label for="slide3" class="slider-btn next slider-next-2" aria-label="Zum nächsten Slide">&rarr;</label>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ARBEITSWEISE SECTION -->
+    <section id="erfahrungen">
+      <!-- #erfahrungen = Anker für Navigation -->
+      
+      <div class="erfahrungen__inner container">
+        <!-- .erfahrungen__inner = Text LINKS, Bild RECHTS (50/50) -->
+
+        <div class="erfahrungen__text reveal">
+          <!-- .erfahrungen__text = nimmt 50% vom Platz -->
+          
+          <h2 class="section__title modern">Arbeitsweise</h2>
+
+          <div class="erfahrung__kategorie reveal">
+            <!-- .erfahrung__kategorie = weiße Box mit Schatten -->
+            
+            <h3>Team & Kommunikation</h3>
+            
+            <ul class="erfahrung__liste">
+              <!-- .erfahrung__liste = ohne Aufzählungspunkte -->
+              <li>Agile Arbeitsweise mit Sprints</li>
+              <li>Kommunikation über Slack, Google Meet und Tuple</li>
+              <li>Organisation über GitHub Projects</li>
+            </ul>
+          </div>
+
+          <div class="erfahrung__kategorie reveal">
+            <h3>Zusammenarbeit</h3>
+            <ul class="erfahrung__liste">
+              <li>Code-Reviews zur Verbesserung von Codequalität</li>
+              <li>Iterative Feature-Entwicklung</li>
+              <li>Schnelles Feedback durch enge Betreuung</li>
+            </ul>
+          </div>
+
+          <div class="erfahrung__highlight reveal">
+            <!-- .erfahrung__highlight = weiße Box mit Schatten -->
+            
+            <h3>Besondere Ergebnisse</h3>
+            <p>
+              Modernere Plattform, animierte Social-Media-Clips und performante API-Integration —
+              die Kombination aus technischer Tiefe und kreativer Gestaltung brachte großen Mehrwert.
+            </p>
+          </div>
+        </div>
+
+        <div class="erfahrungen__image reveal">
+          <!-- .erfahrungen__image = nimmt 50% vom Platz -->
+          
+          <img src="assets/image/bild2.jpg" alt="Arbeitsweise Illustration">
+          <!-- img = füllt Box, max 600px hoch, abgerundete Ecken -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAZIT SECTION -->
+    <section id="fazit" >
+      <!-- #fazit = Anker für Navigation -->
+      
+      <div class="container">
+        <h2 class="section__title modern">Fazit & Ausblick</h2>
+
+        <div class="fazit__content">
+          <!-- .fazit__content = zwei Boxen NEBENEINANDER (50/50, auf Handy untereinander) -->
+          
+          <div class="fazit__text box reveal">
+            <!-- .box = weiße Box mit Schatten, Padding, abgerundete Ecken -->
+            <!-- .fazit__text = nimmt 50% vom Platz -->
+            
+            <h3>Ergebnisse & Mehrwert</h3>
+            
+            <ul class="fazit__ziele">
+              <!-- .fazit__ziele = ohne Aufzählungspunkte -->
+              <li>Wiederverwendbare UI-Komponenten</li>
+              <li>Animierte Social-Media-Reels</li>
+              <li>Performante API-Anbindung</li>
+              <li>Klarere User Experience</li>
+            </ul>
+          </div>
+
+          <div class="fazit__dank box reveal">
+            <!-- .fazit__dank = nimmt 50% vom Platz -->
+            
+            <h3>Danksagung</h3>
+            <p>Ein besonderer Dank gilt meinem Betreuer und dem gesamten Team bei donista für die hervorragende
+              Betreuung und die wertvollen Lernerfahrungen während des Praktikums.</p>
+            <div>
+              <h6>Kontakt für Rückfragen</h6>
+              <p><strong>E-Mail:</strong> <a href="mailto:dinah@beispiel.de">dinah@beispiel.de</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- .footer = blauer Hintergrund, weißer Text, zentriert -->
+    
+    <div class="container">
+      <p>&copy; 2024 Dinah-Zoe Neumaier. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT FÜR SCROLL ANIMATION -->
+  <script src="js/main.js"></script>
+  <!-- main.js = macht .reveal Elemente beim Scrollen sichtbar -->
+</body>
+
+</html>
+
+
+<!-- 
+Aufgabenstellung: Die HTML Datei ist syntaktisch und semantisch korrekt und möglichst barrierefrei. 
+Gelöst mit: Barrierefreiheit (Alt-Texte bei Bildern, aria-label bei Icon-Buttons usw.)
+Semantische HTML5-Elemente (header, nav usw.)
+Syntaktisch korrekt (DOCTYPE deklariert HTML5, charset UTF-8 für Zeichenkodierung)
+-->

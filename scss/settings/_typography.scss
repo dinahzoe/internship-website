@@ -1,0 +1,72 @@
+// SETTINGS / TYPOGRAPHY
+// Zentrale Schriftgrößen, -dicke und Abstand
+
+// Schriftgrößen
+$text-xs: 0.65rem;   // sehr klein, Fußnoten
+$text-sm: 0.7rem;    // kleine Texte
+$text-0-8: 0.8rem;   // kleine Fließtexte
+$text-base: 0.85rem; // normaler Fließtext
+$text-md: 0.9rem;    // Links, Hervorhebungen
+$text-lg: 1rem;      // Standard, Inputs
+$text-xl: 1.1rem;    // kleine Überschriften
+$text-2xl: 1.2rem;   // h3
+$text-3xl: 1.3rem;   // h2
+$text-4xl: 1.5rem;   // h1
+$text-5xl: 1.6rem;   // Hero-Titel
+
+// Schriftstärken
+$font-semibold: 600; // halbfett
+$font-bold: 700;     // fett
+
+// Buchstabenabstand
+$tracking-wider: 0.5px; // leicht weiter
+$tracking-widest: 1px;  // weit auseinander
+
+// CSS Custom Properties
+:root {
+  --text-xs: #{$text-xs};
+  --text-sm: #{$text-sm};
+  --text-0-8: #{$text-0-8};
+  --text-base: #{$text-base};
+  --text-md: #{$text-md};
+  --text-lg: #{$text-lg};
+  --text-xl: #{$text-xl};
+  --text-2xl: #{$text-2xl};
+  --text-3xl: #{$text-3xl};
+  --text-4xl: #{$text-4xl};
+  --text-5xl: #{$text-5xl};
+  --font-semibold: #{$font-semibold};
+  --font-bold: #{$font-bold};
+  --tracking-wider: #{$tracking-wider};
+  --tracking-widest: #{$tracking-widest};
+}
+
+// Kontrollstrukturen in Sass
+// Mit @for erstellen wir automatisch Regeln für h1 bis h6
+// Die Überschriften werden von groß nach klein
+$start: 1; // bei h1 anfangen
+$end: 6; // bei h6 aufhören
+$inc: .05; // um 0.05 verkleinern bei jeder Überschrift
+$font-max: 1.5; // h1 ist 1.5 mal so groß wie die Basisschrift
+$font-min: 1.0; // kleinste Überschrift ist 1.0 mal so groß
+
+// @for ist eine Schleife, die von $start bis $end läuft
+@for $i from $start through $end {
+    $basic-font-size: $font-max; // In der Schleife verändert sich $font-max und $basic-font-size übernimmt jedes Mal den neuen Wert
+    $font-size: $basic-font-size * 1rem;
+    $font-max: $font-max - $inc; // bei jedem Durchlauf 0.05 kleiner
+    
+    // @if prüft, ob die Schriftgröße zu klein wird bzw. @if Abfrage schützt davor, dass die Schrift zu klein wird
+    @if $font-size <= $font-min {
+        $font-size: $font-min * 1rem; // dann setzen wir das Minimum
+    }
+    
+    // h#{$i} erstellt h1, h2, h3, usw.
+    h#{$i} {
+        font-size: $font-size;
+        margin-bottom: var(--space-xs); // Abstand unter Überschriften
+    }
+    
+    // @debug gibt uns Info in der Konsole < zum Testen
+    @debug h#{$i} $font-size;
+}

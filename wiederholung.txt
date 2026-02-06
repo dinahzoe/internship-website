@@ -1,0 +1,44 @@
+Aufgabenstellung und Umsetzung
+
+Die HTML Datei ist syntaktisch und semantisch korrekt und möglichst barrierefrei.
+-> Gelöst mit: 
+Barrierefreiheit (Alt-Texte bei Bildern, aria-label bei Icon-Buttons usw.)
+Semantische HTML5-Elemente (header, nav usw.)
+Syntaktisch korrekt (DOCTYPE deklariert HTML5, charset UTF-8 für Zeichenkodierung)
+
+
+Alle Dateien sind schmal und mögliche Redundanzen sind ausgemerzt
+-> Durch zentrale Variablen (z. B. für Color-Scheme, Spacing) werden Redundanzen vermieden und Dateien schlank gehalten
+
+Die Styles werden über scss Dateien erarbeitet -> erledigt
+
+
+Als Organisationsform wird ITCSS, SMACSS oder OOCSS gewählt.
+-> ITCSS-Struktur: SCSS ist in klaren Layern getrennt(ANIMATIONS, RESPONSIVE usw.) bessere Reihenfolge/Übersicht, 
+-> Namenskonvention: BEM: 
+                     Block: eigenständige, wiederverwendbare Komponente (z. B. .nav, .btn, .project-card)
+                     Element: inneres Teil des Blocks, nur im Block sinnvoll (z. B. .nav__link, .project-card__content)
+                     Modifier: andere Version (Farbe, Zustand, Größe) mit z.B. modern, active etc. umgesetzt
+-> OOCSS-Prinzipien: Trennung von Struktur(Layout,Größe..) und Skin(Farbe, Styling) z.B. <h2 class="section__title modern">Überschrift</h2>; Struktur = section__title und Skin = modern
+                     oder z.B. .hero als Container + .hero__bg nur fürs Design (Hintergrund)
+
+
+Die HTML Datei ist funktional mund responsive mit einem Minimum von Media Queries. Wenn möglich werden hier intrinsische Techniken verwendet.
+-> Intrinsische Techniken (ohne Media Queries) z.B. Viewport-Einheiten wie 80vh oder 2vw in Datei HERO und Layout, Flexbox mit flex-wrap wie flex-wrap: wrap in Datei FORM
+-> Ansonsten Media Queries nur wo ABSOLUT nötig ist verwendet (z.B. für das Handy für die Tabelle @media screen and (max-width: 800px))
+
+
+Es wird ein Query, welches sich nicht auf die Auflösung bezieht angewandt.
+-> In Datei RESPONSIVE: Media Query ohne Auflösungsbezug (@media print, Druckversion) < bezieht sich auf das Medium (Druck/PDF), nicht auf die Bildschirmbreite
+
+
+In den scss Dateien werden eigene mixins, Module und Kontrollstrukturen erarbeitet.
+-> Mixins; @mixin, @include
+-> Module; @use in Datei HERO
+-> Kontrollstrukturen; @if, @for in Datei TYPOGRAPHY
+
+
+Es sind mindestens zwei verschiedene Animationen einzuarbeiten, eine davon mit JavaScript. Zeigen Sie dabei den Zugriff auf Custom Properties.
+-> In Datei SLIDER: Animation ohne JavaScript
+-> In Datei ANIMATIONS und main.js: Animation mit JavaScript
+   Zugriff auf Custom Properties in Datei ANIMATIONS, Custom Property heißt --transition-duration

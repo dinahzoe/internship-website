@@ -1,0 +1,38 @@
+// MIXINS MIT KONTROLLSTRUKTUREN
+
+// Mixins = wiederverwendbare SCSS-Codeblöcken < spart Wiederholung und erleichtert Wartung
+// Widerholung: @mixin = definieren, @include = nutzen
+
+// MIXIN FÜR FLEXBOX-LAYOUTS
+// Flexbox = Anordnung von Elementen horizontal/vertikal, einfaches Zentrieren < siehe Hero
+// Flexbox ist der einfachste Weg, Inhalte sauber zu zentrieren
+@mixin flex-center($direction: row, $gap: 0) { // row (Zeile) < default
+  // Parameter $direction = row/column, $gap = Abstand zwischen Elementen
+  display: flex;                 // Flexbox aktivieren
+  flex-flow: $direction nowrap;  // legt fest, ob Flexbox Elemente in einer Reihe oder Spalte angeordnet werden ($direction) und dass sie niemals umbrechen (nowrap), sondern immer in einer Zeile/Spalte bleiben
+  justify-content: center;       // zentriert auf Hauptachse also X
+  align-items: center;           // zentriert auf Querachse also quasi Y
+  gap: $gap;                     // Abstand zwischen Items
+}
+
+// MIXIN FÜR CARD-STYLE
+// Card = Container mit Schatten, Rundung, Padding für Inhalte
+@mixin card-style {
+  background: var(--white);      // weißer Hintergrund
+  border-radius: var(--radius);  // abgerundete Ecken
+  padding: var(--space-1-8);     // Innenabstand
+  box-shadow: var(--shadow);     // Schatten für 3D-Effekt, hebt sich ab auch ohne Hover
+}
+
+// MIXIN FÜR HOVER-EFFEKTE < siehe Cards
+// Hebt Elemente leicht an + Schatten beim Überfahren mit Maus
+@mixin hover-lift {
+  &:hover {
+    box-shadow: var(--shadow-lg);            // größerer Schatten
+  }
+}
+
+
+// Flex = einzeilige oder einspaltige Anordnung (Kinder nebeneinander oder untereinander) < Standardmäßig horizontal < row
+// Grid = zweidimensionales Layout (Zeilen + Spalten)
+// Block (Standard) = jedes Element in neuer Zeile
