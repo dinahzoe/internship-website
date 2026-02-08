@@ -70,6 +70,3 @@ $border-width-accent: 6px;
   --border-width-heavy: #{$border-width-heavy};
   --border-width-accent: #{$border-width-accent};
 }
-
-// Aufgabenstellung: Dateien schmal, Redundanzen ausgemerzt
-// Lösung: Durch zentrale Variablen (z. B. für Color-Scheme, Spacing) werden Redundanzen vermieden und Dateien schlank gehalten

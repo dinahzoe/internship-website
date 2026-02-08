@@ -62,18 +62,3 @@
 
   z-index: -1; // Ganz hinten
 }
-
-
-/*
-Aufgabenstellung: In den scss Dateien werden eigene mixins, Module und Kontrollstrukturen erarbeitet
-Lösung: 
-Mixins; @mixin, @include
-Module; @use
-Kontrollstrukturen; @if, @for in Datei TYPOGRAPHY
-
-
-z-index + position bestimmen die Layer-Reihenfolge:
-Hero-BG -1 < ganz hinten 
-Sections 1 < über Hintergrund, unter Hero
-Header 100 < immer oben, über allem
-*/

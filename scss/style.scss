@@ -28,16 +28,3 @@
 
 // RESPONSIVE
 @use 'responsive/responsive';
-
-
-
-
-
-
-// Aufgabenstellung: Als Organisationsform wird ITCSS, SMACSS oder OOCSS gewählt
-// Lösung: 
-// styles.scss: ITCSS-Struktur mit 6 Layern(ANIMATIONS, RESPONSIVE usw.),
-// Namenskonvention: BEM: Block(.nav, .btn, .project-card; eigenständige Komponente), 
-                  // Block__Element: inneres Teil des Blocks (__list, __link, __content)
-                  // Block--Modifier: andere Version (Farbe, Zustand, Größe)
-// OOCSS-Prinzipien: Trennung von Struktur(Layout,Größe..) und Skin(Farbe, Styling) z.B. <h2 class="section__title modern">Überschrift</h2>; Struktur = section__title und Skin = modern
